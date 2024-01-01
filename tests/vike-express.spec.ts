@@ -10,7 +10,7 @@ test.beforeAll(async () => {
   try {
     await killPort(port);
   } catch (error) {}
-  const cp = exec(`cd ${folder} && cross-env PORT=${port} pnpm dev`);
+  const cp = exec(`cd ${folder} && PORT=${port} pnpm dev`);
   cp.stdout?.pipe(process.stdout);
   cp.stderr?.pipe(process.stderr);
   await new Promise((resolve) => setTimeout(resolve, 1000));
