@@ -39,7 +39,6 @@ const ConfigPlugin: Plugin[] = [
           noExternal: [
             /@vikejs\/vite-plugin-angular/,
             /@vikejs\/angular-renderer-core/,
-            /vike-adapter-.*/,
             /@angular\/platform/,
           ],
         },
