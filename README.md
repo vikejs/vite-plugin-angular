@@ -1,1 +1,1 @@
-## Vite plugin for vike-angular.
+./packages/vite-plugin-angular/README.md
