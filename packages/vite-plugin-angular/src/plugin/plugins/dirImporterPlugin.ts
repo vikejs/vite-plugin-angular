@@ -1,10 +1,12 @@
+export { DirImporterPlugin };
+
 import { stat } from 'fs/promises';
 import { relative, resolve } from 'path';
 import { cwd } from 'process';
 import { normalizePath, Plugin } from 'vite';
 
 // Workaround for Node.js [ERR_UNSUPPORTED_DIR_IMPORT]
-export const DirImporterPlugin: Plugin = {
+const DirImporterPlugin: Plugin = {
   name: 'vite-plugin-angular/dir-importer',
   enforce: 'pre',
   async resolveId(source, importer, options) {
@@ -37,12 +39,5 @@ export const DirImporterPlugin: Plugin = {
         }
       }
     } catch {}
-  },
-  config() {
-    return {
-      ssr: {
-        noExternal: /apollo-angular/,
-      },
-    };
   },
 };

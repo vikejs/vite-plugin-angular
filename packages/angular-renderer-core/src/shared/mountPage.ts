@@ -1,10 +1,13 @@
+export { mountPage };
+export type { LayoutComponent };
+
 import { ComponentRef, Type, ViewContainerRef } from '@angular/core';
 
-export interface LayoutComponent<U> {
+interface LayoutComponent<U> {
   page: ViewContainerRef;
 }
 
-export const mountPage = <T, U>({
+const mountPage = <T, U>({
   compRef,
   page,
   layout,

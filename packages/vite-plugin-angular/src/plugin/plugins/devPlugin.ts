@@ -1,7 +1,9 @@
+export { DevelopmentPlugin };
+
 import type { Plugin } from 'vite';
 import { swcTransform } from '../swc/transform.js';
 
-export const DevelopmentPlugin: Plugin = {
+const DevelopmentPlugin: Plugin = {
   name: 'vite-plugin-angular-dev',
   enforce: 'pre',
   apply(_, env) {

@@ -1,3 +1,5 @@
+export { renderToString };
+
 import '@angular/compiler';
 import '@angular/platform-server/init';
 import 'zone.js/node';
@@ -40,7 +42,7 @@ if (import.meta.env.PROD) {
   enableProdMode();
 }
 
-export const SSR_PAGE_PROPS = new InjectionToken<{
+const SSR_PAGE_PROPS = new InjectionToken<{
   pageProps: Record<string, unknown>;
   page: Type<{}> | null;
   layout: Type<{}> | null;
@@ -54,7 +56,7 @@ export const SSR_PAGE_PROPS = new InjectionToken<{
   },
 });
 
-export const SSR_PAGE_PROPS_HOOK_PROVIDER: Provider = {
+const SSR_PAGE_PROPS_HOOK_PROVIDER: Provider = {
   provide: APP_BOOTSTRAP_LISTENER,
   useFactory: (
     appRef: ApplicationRef,
@@ -107,7 +109,7 @@ export interface RenderToStringOptions<T = any, U = any>
   url?: string;
 }
 
-export const renderToString = async <T, U>({
+const renderToString = async <T, U>({
   page,
   layout,
   pageContext,

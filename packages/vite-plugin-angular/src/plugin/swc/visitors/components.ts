@@ -1,3 +1,5 @@
+export { AngularComponents, AngularComponentOptions };
+
 import {
   ArrayExpression,
   CallExpression,
@@ -28,10 +30,10 @@ const isComponentDecorator = (decorator: Decorator) =>
   decorator.expression.type === 'CallExpression' &&
   (decorator.expression?.callee as Identifier).value === 'Component';
 
-export interface AngularComponentOptions {
+interface AngularComponentOptions {
   sourceUrl: string;
 }
-export class AngularComponents extends Visitor {
+class AngularComponents extends Visitor {
   importFiles: {
     url: string;
     identifier: string;
@@ -100,7 +102,7 @@ export class AngularComponents extends Visitor {
 
     if (extname(actualImportPath) !== '.html') {
       throw new Error(
-        `HTML type ${extname(actualImportPath)} is not supported.`
+        `HTML type ${extname(actualImportPath)} is not supported.`,
       );
     }
     const identifier = randomIdentifier();
@@ -110,7 +112,7 @@ export class AngularComponents extends Visitor {
     });
     return createKeyValueProperty(
       createIdentifer('template'),
-      createIdentifer(identifier)
+      createIdentifer(identifier),
     );
   }
 
@@ -131,7 +133,7 @@ export class AngularComponents extends Visitor {
       ...prop,
       key: createIdentifer('styles'),
       value: createArrayExpression(
-        styles.map(c => createExpressionStatement(createIdentifer(c)))
+        styles.map(c => createExpressionStatement(createIdentifer(c))),
       ),
     };
   }

@@ -1,3 +1,5 @@
+export { renderPage };
+
 import 'zone.js';
 import {
   APP_BOOTSTRAP_LISTENER,
@@ -28,7 +30,7 @@ if (import.meta.env.PROD) {
   enableProdMode();
 }
 let hydrated = false;
-export const renderPage = async <T, U>({
+const renderPage = async <T, U>({
   page,
   layout,
   pageContext,

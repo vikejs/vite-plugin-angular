@@ -1,3 +1,5 @@
+export { AngularInjector };
+
 import {
   Argument,
   CallExpression,
@@ -43,7 +45,7 @@ function createCallExpression(
   return object;
 }
 
-export class AngularInjector extends Visitor {
+class AngularInjector extends Visitor {
   private hasInjectorImport = false;
   private hasInjectedConstructor = false;
   private isAngularClass = false;

@@ -1,7 +1,11 @@
+//TODO: move this to vike-angular
+
+export { wait, wait$ };
+
 import { defer, from, ObservableInput, tap } from 'rxjs';
 
 /** Delays the server-side render until the input resolves. */
-export const wait = <T, O extends Promise<T>>(input: O) => {
+const wait = <T, O extends Promise<T>>(input: O) => {
   if (import.meta.env.SSR) {
     const i = setTimeout(() => {}, 10000);
     input.finally(() => clearTimeout(i));
@@ -11,7 +15,7 @@ export const wait = <T, O extends Promise<T>>(input: O) => {
 };
 
 /** Delays the server-side render until the input resolves. */
-export const wait$ = <T, O extends ObservableInput<T>>(input: O) => {
+const wait$ = <T, O extends ObservableInput<T>>(input: O) => {
   const obs = from(input);
   if (import.meta.env.SSR) {
     const i = setTimeout(() => {}, 10000);

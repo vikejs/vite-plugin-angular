@@ -1,3 +1,5 @@
+export { requiresLinking };
+
 import * as wbl from '@angular-devkit/build-angular/src/tools/babel/webpack-loader.js';
 import * as app from '@angular-devkit/build-angular/src/tools/babel/presets/application.js';
 
@@ -10,5 +12,3 @@ if (typeof (wbl as any)['requiresLinking'] !== 'undefined') {
 } else if (typeof (app as any)['requiresLinking'] !== 'undefined') {
   requiresLinking = (app as any)['requiresLinking'] as Function;
 }
-
-export { requiresLinking };

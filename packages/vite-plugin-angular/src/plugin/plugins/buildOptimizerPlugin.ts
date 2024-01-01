@@ -1,10 +1,12 @@
+export { BuildOptimizerPlugin };
+
 import angularApplicationPreset from '@angular-devkit/build-angular/src/tools/babel/presets/application.js';
 import { loadEsmModule } from '@angular-devkit/build-angular/src/utils/load-esm.js';
 import { transformAsync } from '@babel/core';
 import { Plugin } from 'vite';
 import { requiresLinking } from './utils.js';
 
-export const BuildOptimizerPlugin: Plugin = {
+const BuildOptimizerPlugin: Plugin = {
   name: 'vite-plugin-angular-optimizer',
   apply(config, env) {
     return env.command === 'build';
